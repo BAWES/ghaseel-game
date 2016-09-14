@@ -7,9 +7,9 @@ import {Observable} from 'rxjs/Rx';
         <div class='row' *ngFor="let gameRow of gameColumns; let rowIndex=index">
             <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="let gameColumn of gameRow; let colIndex=index">
                 <button
-                style='font-size:2em; background-color:00bfff; text-align:left; border-color:white;'
+                style='font-size:1.7em; /*background-color:00bfff;*/ text-align:left;'
                 [attr.data-number]="gameColumns[rowIndex][colIndex]"
-                class='btn btn-primary btn-block' (click)="onClick($event)">
+                class='btn btn-info btn-block' (click)="onClick($event)">
                     <i class="fa fa-car"
                     [attr.data-number]="gameColumns[rowIndex][colIndex]"
                     aria-hidden="true"></i>
