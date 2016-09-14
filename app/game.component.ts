@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Rx';
         <div class='row' *ngFor="#gameRow of gameColumns; #rowIndex=index">
             <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="#gameColumn of gameRow; #colIndex=index">
                 <button
-                style='font-size:1.5em'
+                style='font-size:1.4em'
                 id="{{ gameColumns[rowIndex][colIndex] }}"
                     class='btn btn-primary btn-block' (click)="onClick($event)">
                     <i *ngIf="gameColumns[rowIndex][colIndex]" class="fa fa-car" aria-hidden="true"></i>
@@ -34,7 +34,7 @@ export class GameComponent implements OnInit {
     columnSize = 12/this.numColumns;
     defaultValue = null;
 
-    numberOfRandomDigits = 10;
+    numberOfRandomDigits = 6;
 
     sequenceCurrentlyAt = 1;
     sequenceEndsAt = 30;

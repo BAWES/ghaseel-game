@@ -27,8 +27,8 @@ System.register(['angular2/core', './game.component'], function(exports_1, conte
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <div style='text-align:center;'>\n        <img src='images/ghaseel-logo.png' style='width:100px'/>\n        <h2>Ghaseel Game</h2>\n    </div>\n    <game></game>\n\n    <div  style='text-align:center; margin-top:10px;'>\n    <a href='https://itunes.apple.com/us/app/ghaseel-ghsyl/id1052534178?ls=1&mt=8' target='_blank'>\n        <img src='images/appstore.png' style='width:130px'/>\n    </a>\n\n    <br/><br/>\n\n    <div class=\"well well-sm\" style='display:inline;'>\n        <a href='http://bawes.net' target='_blank'>\n            <img src='http://bawes.net/wp-content/uploads/2016/03/logo.png' style='width:50px;'/>\n            Built Awesome by BAWES</a>\n    </div>\n    </div>\n\n    ",
-                        directives: [game_component_1.GameComponent]
+                        template: "\n    <div style='text-align:center; margin:0;padding:0;'>\n        <img src='images/ghaseel-logo.png' style='width:100px;margin:0;padding:0;'/>\n        <h2 style='margin-top:0; padding-top:0;'>Ghaseel Game</h2>\n    </div>\n    <game></game>\n\n    <div  style='text-align:center; margin-top:10px;'>\n        <a href='https://itunes.apple.com/us/app/ghaseel-ghsyl/id1052534178?ls=1&mt=8' target='_blank'>\n            <img src='images/appstore.png' style='width:130px'/>\n        </a>\n\n        <br/><br/>\n\n        <div class=\"well well-sm\" style='display:inline;'>\n            <a href='http://bawes.net' target='_blank'>\n                <img src='http://bawes.net/wp-content/uploads/2016/03/logo.png' style='width:50px;'/>\n                Built Awesome by BAWES</a>\n        </div>\n    </div>\n    ",
+                        directives: [game_component_1.GameComponent],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
