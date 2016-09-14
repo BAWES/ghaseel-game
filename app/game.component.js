@@ -17,9 +17,9 @@ var GameComponent = (function () {
         this.numColumns = 4; //Possible values: 2, 3, 4, 6, 12
         this.columnSize = 12 / this.numColumns;
         this.defaultValue = null;
-        this.numberOfRandomDigits = 6;
+        this.numberOfRandomDigits = 17;
         this.sequenceCurrentlyAt = 1;
-        this.sequenceEndsAt = 30;
+        this.sequenceEndsAt = 100;
         // List of unique numbers currently on the board
         this.numbersOnBoard = [];
         this.timer = 0;
@@ -151,7 +151,7 @@ var GameComponent = (function () {
     GameComponent = __decorate([
         core_1.Component({
             selector: 'game',
-            template: "\n        <div class='row' *ngFor=\"let gameRow of gameColumns; let rowIndex=index\">\n            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor=\"let gameColumn of gameRow; let colIndex=index\">\n                <button\n                style='font-size:1.4em'\n                [attr.data-number]=\"gameColumns[rowIndex][colIndex]\"\n                class='btn btn-primary btn-block' (click)=\"onClick($event)\">\n                    <i *ngIf=\"gameColumns[rowIndex][colIndex]\" class=\"fa fa-car\"\n                    [attr.data-number]=\"gameColumns[rowIndex][colIndex]\"\n                    aria-hidden=\"true\"></i>\n                    {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:\"&nbsp;\" }}\n                </button>\n            </div>\n        </div>\n\n        <h3 *ngIf=\"!gameOver\" style='text-align:center'>Time spent: {{ timer | number }}</h3>\n        <h2 *ngIf=\"gameOver\" style='text-align:center'>\n            Game Over, finished game in {{ timer | number }} seconds<br/>\n            <a (click)=\"restartGame()\">Restart</a>\n        </h2>\n    "
+            template: "\n        <div class='row' *ngFor=\"let gameRow of gameColumns; let rowIndex=index\">\n            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor=\"let gameColumn of gameRow; let colIndex=index\">\n                <button\n                style='font-size:1.4em; background-color:00bfff;'\n                [attr.data-number]=\"gameColumns[rowIndex][colIndex]\"\n                class='btn btn-primary btn-block' (click)=\"onClick($event)\">\n                    <i class=\"fa fa-car\"\n                    [attr.data-number]=\"gameColumns[rowIndex][colIndex]\"\n                    aria-hidden=\"true\"></i>\n                    {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:\"&nbsp;\" }}\n                </button>\n            </div>\n        </div>\n\n        <h3 *ngIf=\"!gameOver\" style='text-align:center'>Time spent: {{ timer | number }}</h3>\n        <h2 *ngIf=\"gameOver\" style='text-align:center'>\n            Game Over, finished game in {{ timer | number }} seconds<br/>\n            <a (click)=\"restartGame()\">Restart</a>\n        </h2>\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], GameComponent);
