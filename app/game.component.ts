@@ -86,9 +86,7 @@ export class GameComponent implements OnInit {
 
         //Start timer
         this.ticker = Observable.timer(800,100).takeWhile(x => !this.gameOver);
-        this.ticker.subscribe(t => {
-            this.timer += 0.1
-        });
+
     }
 
     //Adds a random upcoming number on the board
@@ -168,6 +166,13 @@ export class GameComponent implements OnInit {
 
         // Check if number correctly selected
         if(numberClicked == this.sequenceCurrentlyAt){
+            //Start timer on game start
+            if(numberClicked == 1){
+                this.ticker.subscribe(t => {
+                    this.timer += 0.1
+                });
+            }
+
             //End the game if sequence ended
             if(this.sequenceCurrentlyAt == this.sequenceEndsAt){
                 this.gameOver = true;

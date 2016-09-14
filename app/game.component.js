@@ -69,9 +69,6 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                     }
                     //Start timer
                     this.ticker = Rx_1.Observable.timer(800, 100).takeWhile(function (x) { return !_this.gameOver; });
-                    this.ticker.subscribe(function (t) {
-                        _this.timer += 0.1;
-                    });
                 };
                 //Adds a random upcoming number on the board
                 GameComponent.prototype.addRandomFakeOnBoard = function () {
@@ -134,9 +131,16 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                     return Math.floor(Math.random() * (max - min + 1) + min);
                 };
                 GameComponent.prototype.onClick = function (event) {
+                    var _this = this;
                     var numberClicked = event.target.id;
                     // Check if number correctly selected
                     if (numberClicked == this.sequenceCurrentlyAt) {
+                        //Start timer on game start
+                        if (numberClicked == 1) {
+                            this.ticker.subscribe(function (t) {
+                                _this.timer += 0.1;
+                            });
+                        }
                         //End the game if sequence ended
                         if (this.sequenceCurrentlyAt == this.sequenceEndsAt) {
                             this.gameOver = true;
