@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Rx';
         <div class='row' *ngFor="let gameRow of gameColumns; let rowIndex=index">
             <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="let gameColumn of gameRow; let colIndex=index">
                 <button
-                style='font-size:1.4em; background-color:00bfff; text-align:left;'
+                style='font-size:2em; background-color:00bfff; text-align:left; border:0;'
                 [attr.data-number]="gameColumns[rowIndex][colIndex]"
                 class='btn btn-primary btn-block' (click)="onClick($event)">
                     <i class="fa fa-car"
@@ -20,7 +20,7 @@ import {Observable} from 'rxjs/Rx';
 
         <h3 *ngIf="!gameOver" style='text-align:center'>Time spent: {{ timer | number }}</h3>
         <h2 *ngIf="gameOver" style='text-align:center'>
-            Game Over, finished game in {{ timer | number }} seconds<br/>
+            Game finished in {{ timer | number }} seconds<br/>
             <a (click)="restartGame()">Restart</a>
         </h2>
     `
