@@ -7,7 +7,8 @@ import {Observable} from 'rxjs/Rx';
     template: `
         <div class='row' *ngFor="#gameRow of gameColumns; #rowIndex=index">
             <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="#gameColumn of gameRow; #colIndex=index">
-                <button id="{{ gameColumns[rowIndex][colIndex] }}"
+                <button
+                id="{{ gameColumns[rowIndex][colIndex] }}"
                     class='btn btn-primary btn-block' (click)="onClick($event)">
                     <i *ngIf="gameColumns[rowIndex][colIndex]" class="fa fa-car" aria-hidden="true"></i>
                     {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:"&nbsp;" }}
@@ -27,7 +28,7 @@ export class GameComponent implements OnInit {
     gameOver = false;
 
     numRows = 6; //Any value works
-    numColumns = 6; //Possible values: 2, 3, 4, 6, 12
+    numColumns = 4; //Possible values: 2, 3, 4, 6, 12
 
     columnSize = 12/this.numColumns;
     defaultValue = null;

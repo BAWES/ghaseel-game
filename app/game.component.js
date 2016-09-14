@@ -28,7 +28,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                 function GameComponent() {
                     this.gameOver = false;
                     this.numRows = 6; //Any value works
-                    this.numColumns = 6; //Possible values: 2, 3, 4, 6, 12
+                    this.numColumns = 4; //Possible values: 2, 3, 4, 6, 12
                     this.columnSize = 12 / this.numColumns;
                     this.defaultValue = null;
                     this.numberOfRandomDigits = 10;
@@ -161,7 +161,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                 GameComponent = __decorate([
                     core_1.Component({
                         selector: 'game',
-                        template: "\n        <div class='row' *ngFor=\"#gameRow of gameColumns; #rowIndex=index\">\n            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor=\"#gameColumn of gameRow; #colIndex=index\">\n                <button id=\"{{ gameColumns[rowIndex][colIndex] }}\"\n                    class='btn btn-primary btn-block' (click)=\"onClick($event)\">\n                    <i *ngIf=\"gameColumns[rowIndex][colIndex]\" class=\"fa fa-car\" aria-hidden=\"true\"></i>\n                    {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:\"&nbsp;\" }}\n                </button>\n            </div>\n        </div>\n\n        <h3 *ngIf=\"!gameOver\" style='text-align:center'>Time spent: {{ timer | number }}</h3>\n        <h2 *ngIf=\"gameOver\" style='text-align:center'>\n            Game Over, finished game in {{ timer | number }} seconds<br/>\n            <a (click)=\"restartGame()\">Restart</a>\n        </h2>\n    ",
+                        template: "\n        <div class='row' *ngFor=\"#gameRow of gameColumns; #rowIndex=index\">\n            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor=\"#gameColumn of gameRow; #colIndex=index\">\n                <button\n                id=\"{{ gameColumns[rowIndex][colIndex] }}\"\n                    class='btn btn-primary btn-block' (click)=\"onClick($event)\">\n                    <i *ngIf=\"gameColumns[rowIndex][colIndex]\" class=\"fa fa-car\" aria-hidden=\"true\"></i>\n                    {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:\"&nbsp;\" }}\n                </button>\n            </div>\n        </div>\n\n        <h3 *ngIf=\"!gameOver\" style='text-align:center'>Time spent: {{ timer | number }}</h3>\n        <h2 *ngIf=\"gameOver\" style='text-align:center'>\n            Game Over, finished game in {{ timer | number }} seconds<br/>\n            <a (click)=\"restartGame()\">Restart</a>\n        </h2>\n    ",
                         providers: [http_1.HTTP_PROVIDERS],
                     }), 
                     __metadata('design:paramtypes', [])
