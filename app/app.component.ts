@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 import {GameComponent} from './game.component';
 
@@ -24,8 +24,7 @@ import {GameComponent} from './game.component';
                 Built Awesome by BAWES</a>
         </div>
     </div>
-    `,
-    directives: [GameComponent],
+    `
 })
 export class AppComponent {
 }

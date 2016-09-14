@@ -1,12 +1,11 @@
-import {Component, OnInit} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
     selector: 'game',
     template: `
-        <div class='row' *ngFor="#gameRow of gameColumns; #rowIndex=index">
-            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="#gameColumn of gameRow; #colIndex=index">
+        <div class='row' *ngFor="let gameRow of gameColumns; let rowIndex=index">
+            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="let gameColumn of gameRow; let colIndex=index">
                 <button
                 style='font-size:1.4em'
                 [attr.data-number]="gameColumns[rowIndex][colIndex]"
@@ -24,8 +23,7 @@ import {Observable} from 'rxjs/Rx';
             Game Over, finished game in {{ timer | number }} seconds<br/>
             <a (click)="restartGame()">Restart</a>
         </h2>
-    `,
-    providers: [HTTP_PROVIDERS],
+    `
 })
 export class GameComponent implements OnInit {
     gameOver = false;
