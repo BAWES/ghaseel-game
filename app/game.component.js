@@ -117,7 +117,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                  * @return boolean       whether successfully added or not
                  */
                 GameComponent.prototype.putValueInRandomLocation = function (value) {
-                    for (var x = 0; x < (this.numRows * this.numColumns); x++) {
+                    for (var x = 0; x < 20; x++) {
                         //Random Row and Col Index to check
                         var rowIndexToCheck = Math.floor((Math.random() * (this.numRows)));
                         var colIndexToCheck = Math.floor((Math.random() * (this.numColumns)));
@@ -132,7 +132,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                 };
                 GameComponent.prototype.onClick = function (event) {
                     var _this = this;
-                    var numberClicked = event.target.id;
+                    var numberClicked = event.target.dataset.number;
                     // Check if number correctly selected
                     if (numberClicked == this.sequenceCurrentlyAt) {
                         //Start timer on game start
@@ -165,7 +165,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_
                 GameComponent = __decorate([
                     core_1.Component({
                         selector: 'game',
-                        template: "\n        <div class='row' *ngFor=\"#gameRow of gameColumns; #rowIndex=index\">\n            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor=\"#gameColumn of gameRow; #colIndex=index\">\n                <button\n                style='font-size:1.4em'\n                id=\"{{ gameColumns[rowIndex][colIndex] }}\"\n                    class='btn btn-primary btn-block' (click)=\"onClick($event)\">\n                    <i *ngIf=\"gameColumns[rowIndex][colIndex]\" class=\"fa fa-car\" aria-hidden=\"true\"></i>\n                    {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:\"&nbsp;\" }}\n                </button>\n            </div>\n        </div>\n\n        <h3 *ngIf=\"!gameOver\" style='text-align:center'>Time spent: {{ timer | number }}</h3>\n        <h2 *ngIf=\"gameOver\" style='text-align:center'>\n            Game Over, finished game in {{ timer | number }} seconds<br/>\n            <a (click)=\"restartGame()\">Restart</a>\n        </h2>\n    ",
+                        template: "\n        <div class='row' *ngFor=\"#gameRow of gameColumns; #rowIndex=index\">\n            <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor=\"#gameColumn of gameRow; #colIndex=index\">\n                <button\n                style='font-size:1.4em'\n                [attr.data-number]=\"gameColumns[rowIndex][colIndex]\"\n                class='btn btn-primary btn-block' (click)=\"onClick($event)\">\n                    <i *ngIf=\"gameColumns[rowIndex][colIndex]\" class=\"fa fa-car\"\n                    [attr.data-number]=\"gameColumns[rowIndex][colIndex]\"\n                    aria-hidden=\"true\"></i>\n                    {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:\"&nbsp;\" }}\n                </button>\n            </div>\n        </div>\n\n        <h3 *ngIf=\"!gameOver\" style='text-align:center'>Time spent: {{ timer | number }}</h3>\n        <h2 *ngIf=\"gameOver\" style='text-align:center'>\n            Game Over, finished game in {{ timer | number }} seconds<br/>\n            <a (click)=\"restartGame()\">Restart</a>\n        </h2>\n    ",
                         providers: [http_1.HTTP_PROVIDERS],
                     }), 
                     __metadata('design:paramtypes', [])

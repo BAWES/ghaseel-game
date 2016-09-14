@@ -9,9 +9,11 @@ import {Observable} from 'rxjs/Rx';
             <div style='margin:0;padding:0;' class='col-xs-{{ columnSize }}' *ngFor="#gameColumn of gameRow; #colIndex=index">
                 <button
                 style='font-size:1.4em'
-                id="{{ gameColumns[rowIndex][colIndex] }}"
-                    class='btn btn-primary btn-block' (click)="onClick($event)">
-                    <i *ngIf="gameColumns[rowIndex][colIndex]" class="fa fa-car" aria-hidden="true"></i>
+                [attr.data-number]="gameColumns[rowIndex][colIndex]"
+                class='btn btn-primary btn-block' (click)="onClick($event)">
+                    <i *ngIf="gameColumns[rowIndex][colIndex]" class="fa fa-car"
+                    [attr.data-number]="gameColumns[rowIndex][colIndex]"
+                    aria-hidden="true"></i>
                     {{ gameColumns[rowIndex][colIndex]? gameColumns[rowIndex][colIndex]:"&nbsp;" }}
                 </button>
             </div>
@@ -143,7 +145,7 @@ export class GameComponent implements OnInit {
      * @return boolean       whether successfully added or not
      */
     putValueInRandomLocation(value){
-        for(let x=0; x<(this.numRows * this.numColumns); x++){
+        for(let x=0; x<20; x++){
             //Random Row and Col Index to check
             let rowIndexToCheck = Math.floor((Math.random() * (this.numRows)));
             let colIndexToCheck = Math.floor((Math.random() * (this.numColumns)));
@@ -162,7 +164,7 @@ export class GameComponent implements OnInit {
 
 
     onClick(event){
-        const numberClicked = event.target.id;
+        const numberClicked = event.target.dataset.number;
 
         // Check if number correctly selected
         if(numberClicked == this.sequenceCurrentlyAt){
