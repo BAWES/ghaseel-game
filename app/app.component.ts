@@ -16,7 +16,7 @@ import {GameComponent} from './game.component';
             <img src='images/appstore.png' style='width:130px'/>
         </a>
 
-        <br/><br/>
+        <br/><br/><br/><br/>
 
         <div class="well well-sm" style='display:inline;'>
             <a href='http://bawes.net' target='_blank'>
