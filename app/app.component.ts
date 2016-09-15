@@ -7,7 +7,8 @@ import {GameComponent} from './game.component';
     template: `
     <div style='text-align:center; margin:0;padding:0;'>
         <img src='images/ghaseel-logo.png' style='width:100px;margin:0;padding:0;'/>
-        <h2 style='margin-top:0; padding-top:0;'>Ghaseel Game</h2>
+        <h3 style='margin-top:0; padding-top:0;'>Ghaseel Game</h3>
+        <h5>Press from 1 to 50</h5>
     </div>
     <game></game>
 
