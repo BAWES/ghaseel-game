@@ -19,10 +19,10 @@ import {Observable} from 'rxjs/Rx';
         </div>
 
         <h3 *ngIf="!gameOver" style='text-align:center'>Time spent: {{ timer | number }}</h3>
-        <h3 *ngIf="gameOver" style='text-align:center'>
+        <h4 *ngIf="gameOver" style='text-align:center'>
             Game finished in {{ timer | number }} seconds<br/>
-            <a (click)="restartGame()">Restart</a>
-        </h3>
+            <br/><a (click)="restartGame()">Restart</a>
+        </h4>
     `
 })
 export class GameComponent implements OnInit {
